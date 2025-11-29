@@ -21,10 +21,17 @@
                 <label for="password">Password:</label>
                 <input type="password" id="password" name="password" required>
                 
+                <div id="captcha-container">
+                    <label for="captcha-input">Solve the math problem:</label>
+                    <p id="captcha-problem" style="font-weight: bold; margin: 5px 0; font-size: 1.1em; color: #007bff;"></p>
+                    <input type="text" id="captcha-input" name="captcha-input" placeholder="Enter result" required>
+                </div>
                 <p id="login-error" class="error-message"></p>
 
                 <button type="submit">Login</button>
             </form>
+            
+            <p><a href="register.html">Don't have an account? Register here</a> | <a href="reset-password.html">Forgot Password?</a></p>
         </section>
 
         <nav id="guest-navigation">
@@ -42,6 +49,9 @@
     <script>
         // Form Validation & Authentication: Attach handler to the form
         document.getElementById('login-form').addEventListener('submit', handleLogin);
+        // Load CAPTCHA on page load
+        document.addEventListener('DOMContentLoaded', generateCaptcha); // <-- NEW LINE
     </script>
 </body>
+
 </html>
